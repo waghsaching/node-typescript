@@ -1,21 +1,10 @@
 import * as express from 'express';
+import PublicController from '../controllers/public/public-controlle';
 
 const router = express.Router()
-router.get('/', (req, res) => {
-    res.status(200).json({
-      message: 'Hello World'
-    })
-})
 
-router.get('/one', (req, res) => {
-    res.status(200).json({
-      message: 'public Route one'
-    })
-})
-router.get('/two', (req, res) => {
-    res.status(200).json({
-      message: 'public Route two'
-    })
-})
+router.get('/', PublicController.firstMethod);
+router.get('/one', PublicController.secondMethod);
+router.get('/two', PublicController.thirdMethod);
 
 export default router;

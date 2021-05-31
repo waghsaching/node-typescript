@@ -1,22 +1,10 @@
 import * as express from 'express';
+import SecureController from '../controllers/secure/secure-controller';
 
 const router = express.Router()
 
-router.get('/', (req, res) => {
-    res.status(200).json({
-      message: 'Secure Routes'
-    })
-})
-
-router.get('/one', (req, res) => {
-    res.status(200).json({
-      message: 'secure Route one'
-    })
-})
-router.get('/two', (req, res) => {
-    res.status(200).json({
-      message: 'secure Route two'
-    })
-})
+router.get('/', SecureController.firstMethod);
+router.get('/one', SecureController.secondMethod);
+router.get('/two', SecureController.thirdMethod);
 
 export default router;
