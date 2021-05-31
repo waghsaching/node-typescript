@@ -1,5 +1,6 @@
 import * as express from 'express';
-
+import PublicRoutes from './routes/public-routes';
+import SecureRoutes from './routes/secure-routes';
 class App {
   public express
 
@@ -9,13 +10,8 @@ class App {
   }
 
   private mountRoutes (): void {
-    const router = express.Router()
-    router.get('/', (req, res) => {
-      res.status(404).json({
-        message: 'Hello World'
-      })
-    })
-    this.express.use('/', router)
+    this.express.use('/', PublicRoutes);
+    this.express.use('/secure',SecureRoutes);
   }
 }
 

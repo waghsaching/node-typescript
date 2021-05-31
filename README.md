@@ -12,9 +12,9 @@ npm run dev
 npm test
 ```
 
-### Linting
+### Building
 
 ```bash
-npm run lint
+npm run build
 ```
 
